@@ -1,0 +1,24 @@
+@charset "UTF-8";
+html{
+	height: 100%;
+}
+body{
+	width : 100%;
+	height: 100%;
+}
+.wrap{
+	width : 800px;
+	height : 100%;
+	margin: auto;
+}
+#green-div{
+	background-color: #43A047;
+	color : #43A047;
+	font-family: Dotum,'돋움',Helvetica,sans-serif;
+	width: 100%;
+	height: 7px;
+}
+#home_1{
+	
+	width: 50%;
+}
