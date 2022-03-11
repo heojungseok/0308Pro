@@ -1,0 +1,11 @@
+@charset "UTF-8";
+.wrap{
+	width : 300px;
+	margin: auto;
+}
+.home-link{
+	color : #43A047;
+}
+.home-link:hover{
+	color : black;
+}

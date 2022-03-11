@@ -20,8 +20,7 @@ a {
 <meta charset="UTF-8">
 <title>home</title>
 </head>
-<body>
-
+<body class="d-flex flex-column flex-wrap">
 	<div class="wrap d-flex flex-column">
 		<div id="green-div" />
 		<div
@@ -46,13 +45,13 @@ a {
 		$(document).ready(
 				function() {
 					$('#home').on('click', function() {
-						location.href = "index.jsp"
+						location.href = "index.jsp";
 					});
 					$('#join').on('click', function() {
-						location.href = "join.jsp"
+						 window.open('join.jsp');
 					});
 					$('#login').on('click', function() {
-						location.href = "login.jsp"
+						window.open('login.jsp');
 					});
 
 					var imgIdx = 0;
