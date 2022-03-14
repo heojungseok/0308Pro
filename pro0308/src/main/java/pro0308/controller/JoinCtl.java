@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import pro0308.service.MemberService;
+
 @WebServlet("/joinCtl")
 public class JoinCtl extends HttpServlet {
 
@@ -19,7 +21,8 @@ public class JoinCtl extends HttpServlet {
 		String uuName = request.getParameter("uuName");
 		String uuPw = request.getParameter("uuPw");
 		
-		
+		MemberService s = new MemberService();
+		s.test(uuId);
 		
 	}
 }

@@ -32,49 +32,51 @@ a {
 		</div>
 		<hr>
 		<form action="../joinCtl" method="post">
-		<section>
-			<label class="form-label fs-5">이름</label>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" id="uuName" name="uuName" placeholder="이름">
-			</div>
-			<label class="form-label fs-5">아이디 <font class="form-label d-flex justify-content-start"
-				id="chkId" size="2" ></font>
-			</label>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" id="uuId" name="uuId" placeholder="아이디">
-				<button class="btn btn-sm btn-outline-secondary" type="button"
-					id="chkId">중복체크</button>
-			</div>
-			<label class="form-label fs-6">비밀번호(소문자와 숫자포함 최소 6자)</label>
-			<div class="input-group mb-3">
-				<input type="password" class="form-control" id="pw">
-			</div>
-			<label class="form-label fs-6 d-flex justify-content-between">비밀번호
-				확인 <font class="form-label fs-6" id="confirm" ></font>
-			</label>
-			<div class="input-group mb-3">
-				<input type="password" class="form-control" id="chkPw" name="uuPw">
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="a"
-					id="allChk"> <label class="form-check-label "
-					for="flexCheckDefault"> 전체 동의 </label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="e" id="eChk">
-				<label class="form-check-label " for="flexCheckDefault">
-					필수 동의 </label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="ne"
-					id="neChk"> <label class="form-check-label "
-					for="flexCheckChecked"> 선택 동의 </label>
-			</div>
-		</section>
-		
-		<footer class="d-flex justify-content-center">
-			<button id="doneBtn" class="btn" type="submit">가입 하기</button>
-		</footer>
+			<section>
+				<label class="form-label fs-5">이름</label>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" id="uuName" name="uuName"
+						placeholder="이름">
+				</div>
+				<label class="form-label fs-5">아이디 <font
+					class="form-label d-flex justify-content-start" id="chkId" size="2"></font>
+				</label>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" id="uuId" name="uuId"
+						placeholder="아이디">
+						<button class="btn btn-sm btn-outline-secondary" type="button"
+							id="chkId">중복체크</button>
+				</div>
+				<label class="form-label fs-6">비밀번호(소문자와 숫자포함 최소 6자)</label>
+				<div class="input-group mb-3">
+					<input type="password" class="form-control" id="pw">
+				</div>
+				<label class="form-label fs-6 d-flex justify-content-between">비밀번호
+					확인 <font class="form-label fs-6" id="confirm"></font>
+				</label>
+				<div class="input-group mb-3">
+					<input type="password" class="form-control" id="chkPw" name="uuPw">
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="a"
+						id="allChk"> <label class="form-check-label "
+						for="flexCheckDefault"> 전체 동의 </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="e" id="eChk">
+					<label class="form-check-label " for="flexCheckDefault"> 필수
+						동의 </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="ne"
+						id="neChk"> <label class="form-check-label "
+						for="flexCheckChecked"> 선택 동의 </label>
+				</div>
+			</section>
+
+			<footer class="d-flex justify-content-center">
+				<button id="doneBtn" class="btn" type="submit">가입 하기</button>
+			</footer>
 		</form>
 	</div>
 	<script type="text/javascript">
