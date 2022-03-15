@@ -40,5 +40,34 @@ public class MemberService{
 		}
 		
 	}
+	public void chkTest(String id) {
+		
+		String sql = "SELECT * FROM test1 WHERE uuid = " + "'" + id + "'";
+		
+		try {
+			Class.forName(driver);
+			Connection con = DriverManager.getConnection(url, dbID, dbPW);
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			
+			while(rs.next()) {
+				
+				if(rs.getString("uuid") == id) {
+					System.out.println("ม฿บน");
+				}
+			}
+			
+			con.close();
+			st.close();
+			rs.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 }

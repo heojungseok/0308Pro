@@ -18,7 +18,6 @@ a {
 }
 </style>
 <meta charset="UTF-8">
-
 <title>join</title>
 </head>
 <body class="d-flex flex-column flex-wrap">
@@ -44,10 +43,11 @@ a {
 				<div class="input-group mb-3">
 					<input type="text" class="form-control" id="uuId" name="uuId"
 						placeholder="아이디">
-						<button class="btn btn-sm btn-outline-secondary" type="button"
-							id="chkId">중복체크</button>
+					<button class="btn btn-sm btn-outline-secondary" type="button"
+						id="confirmId" >중복체크</button>
 				</div>
-				<label class="form-label fs-6">비밀번호(소문자와 숫자포함 최소 6자)</label>
+				<label class="form-label fs-6 justify-content-between">비밀번호(소문자,
+					숫자, 특수문자 포함 최소 6자) </label>
 				<div class="input-group mb-3">
 					<input type="password" class="form-control" id="pw">
 				</div>
@@ -81,8 +81,11 @@ a {
 	</div>
 	<script type="text/javascript">
 		var idPattern = /[^a-zA-Z0-9]/;
+		var sw = screen.width;
+		var sh = screen.height;
+		
 		$(document).ready(function() {
-			$("#uuId").keyup(function() {
+			$('#uuId').keyup(function() {
 				var id = $('#uuId').val();
 				if (idPattern.test(id) == true || id.length < 6 || id.length > 12) {
 					$('#chkId').html("(아이디는 최소 6자, 최대 12자, 영문과 숫자로만 이루어집니다.)");
@@ -92,31 +95,63 @@ a {
 				}
 			
 			});
-			$("#chkPw").keyup(function() {
-				var pw = $('#pw').val();
-				var chkPw = $('#chkPw').val();
+			$('#confirmId').on('click', function() {
+				var url = "./chk_form/idchkform.jsp";
+				var popName = "idchk";
+				var width = 350;
+				var height = 250;
+				
+				var option = "width = "+width+", height = "+height+" top ="+((sh/2)-(height/2))+", left = "+((sw/2)-(width/2));
+				
+				window.open(url,popName,option);
+			});
+			$('#chkPw').keyup(function() {
+				var pw = $('#pw').val().toLowerCase();
+				var chkPw = $('#chkPw').val().toLowerCase();
 				
 				if(pw != "" || chkPw != ""){
 					console.log(pw+" , "+chkPw);
 					if(pw == chkPw){
 						$('#confirm').attr('color','green');
 						$('#confirm').html('일치');
-					}
-					else{
+					}else if(chkPw == ""){
+						$('#confirm').html('');
+					}else {
 						$('#confirm').attr('color','black');
 						$('#confirm').html('불일치');
 					}
-				}else{
+				}
+				else{
 					$('#confirm').html('');
 				}
 			});
-			$("#allChk").click(function() {
+			$('#allChk').click(function() {
 				if ($('input[value = "a"]').prop('checked') == true) {
 					$('#eChk').prop('checked', true);
 					$('#neChk').prop('checked', true);
 				}else{
 					$('#eChk').prop('checked', false);
 					$('#neChk').prop('checked', false);
+				}
+			});
+			$('#doneBtn').on('click', function() {
+				var name = $('#uuName').val();
+				var id = $('#uuId').val();
+				var pw = $('#pw').val();
+				var chkPw = $('#chkPw').val();
+				
+				if (name == '' || id == '' || pw == '' || chkPw == '') {
+					alert("항목을 기입해주세요.");
+					return false;
+				}else if(idPattern.test(id) == true || id.length < 6 || id.length > 12){
+					alert("아이디 확인해주세요.");
+					return false;
+				}else if(pw != chkPw || pw.length < 6 || chkPw.length < 6){
+					alert("비밀번호를 확인해주세요.");
+					return false;
+				}else{
+					alert("가입 성공");
+					return true;
 				}
 			});
 		});
