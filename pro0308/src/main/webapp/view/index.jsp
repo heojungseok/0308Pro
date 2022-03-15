@@ -30,8 +30,9 @@ a {
 
 		<section class="d-flex flex-column">
 			<div class="d-flex w-auto">
-				<img id="home_1" class="pre" alt="home_img" src=".././img/home_1.jpg"> 
-				<img id="home_2" class="suf" alt="home_img" src=".././img/home_1.jpg"> 
+				<img id="home_1" class="pre" alt="home_img"
+					src=".././img/home_1.jpg"> <img id="home_2" class="suf"
+					alt="home_img" src=".././img/home_1.jpg">
 			</div>
 			<div class="d-flex justify-content-between">
 				<a id="join" href="#" class="home-link">JOIN</a> <span><a
@@ -48,7 +49,7 @@ a {
 						location.href = "index.jsp";
 					});
 					$('#join').on('click', function() {
-						 window.open('join.jsp');
+						window.open('join.jsp');
 					});
 					$('#login').on('click', function() {
 						window.open('login.jsp');
@@ -57,26 +58,26 @@ a {
 					var imgIdx = 0;
 					var imgs = [ '.././img/home_1.jpg', '.././img/home_2.jpg',
 							'.././img/home_3.jpg', '.././img/home_4.jpg' ]
-				
-					$('#home_1').on('click', function () {
-						imgIdx --;
-						
+
+					$('#home_1').on('click', function() {
+						imgIdx--;
+
 						if (imgIdx < 0) {
 							imgIdx = imgs.length - 1;
-							
+
 						}
 						$('.pre').attr('src', imgs[imgIdx]);
 						$('.suf').attr('src', imgs[imgIdx]);
 					});
-					$('#home_2').on('click', function () {
-						imgIdx ++;
+					$('#home_2').on('click', function() {
+						imgIdx++;
 						if (imgIdx > imgs.length) {
 							imgIdx = 0;
 						}
 						$('.pre').attr('src', imgs[imgIdx]);
 						$('.suf').attr('src', imgs[imgIdx]);
 					});
-				
+
 				});
 	</script>
 </body>

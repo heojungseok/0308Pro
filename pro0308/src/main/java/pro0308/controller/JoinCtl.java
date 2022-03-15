@@ -14,7 +14,6 @@ import pro0308.service.MemberService;
 @WebServlet("/joinCtl")
 public class JoinCtl extends HttpServlet {
 	MemberService service;
-
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

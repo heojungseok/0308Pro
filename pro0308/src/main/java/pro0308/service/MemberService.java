@@ -40,23 +40,23 @@ public class MemberService{
 		}
 		
 	}
-	public void chkTest(String id) {
-		
-		String sql = "SELECT * FROM test1 WHERE uuid = " + "'" + id + "'";
+	public int chkTest(String id) {
+		int chk = 0;
+		String sql = "SELECT * FROM userinfo WHERE uuid = " + "'" + id + "'";
+		String chkid = "";
 		
 		try {
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url, dbID, dbPW);
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);
-			
+
 			while(rs.next()) {
-				
-				if(rs.getString("uuid") == id) {
-					System.out.println("ม฿บน");
+				chkid = rs.getString("uuid");
+				if (chkid.equals(id)) {
+					return chk = 1;
 				}
 			}
-			
 			con.close();
 			st.close();
 			rs.close();
@@ -67,7 +67,6 @@ public class MemberService{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return chk;
 	}
-	
 }

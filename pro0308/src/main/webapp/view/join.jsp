@@ -44,7 +44,7 @@ a {
 					<input type="text" class="form-control" id="uuId" name="uuId"
 						placeholder="아이디">
 					<button class="btn btn-sm btn-outline-secondary" type="button"
-						id="confirmId" >중복체크</button>
+						id="confirmId">중복체크</button>
 				</div>
 				<label class="form-label fs-6 justify-content-between">비밀번호(소문자,
 					숫자, 특수문자 포함 최소 6자) </label>
@@ -96,14 +96,18 @@ a {
 			
 			});
 			$('#confirmId').on('click', function() {
-				var url = "./chk_form/idchkform.jsp";
+				var id = $('#uuId').val();
+				var url = "./chk_form/idchkform.jsp?id="+$('#uuId').val();
 				var popName = "idchk";
 				var width = 350;
 				var height = 250;
 				
 				var option = "width = "+width+", height = "+height+" top ="+((sh/2)-(height/2))+", left = "+((sw/2)-(width/2));
-				
-				window.open(url,popName,option);
+				if(idPattern.test(id) == true || id.length < 6 || id.length > 12){
+					return false;
+				}else{
+					window.open(url,popName,option);
+				}
 			});
 			$('#chkPw').keyup(function() {
 				var pw = $('#pw').val().toLowerCase();
