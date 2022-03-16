@@ -14,21 +14,24 @@ import pro0308.service.MemberService;
 @WebServlet("/chkid")
 public class ChkId extends HttpServlet {
 	MemberService service = new MemberService();
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		System.out.println(this.getClass().getResource("").getPath());
-		String uuId = request.getParameter("uuId");
-		System.out.println("chkid : "+uuId);
-		int chk = service.chkTest(uuId);
-		System.out.println(chk);
-		if(chk == 1) {
-			String msg = "사용할 수 없습니다.";
+		if (request.getParameter("uuId") != null) {
+			String uuId = request.getParameter("uuId");
+			boolean chk = service.chkTest(uuId);
+			String msg = "";
+
+			if (chk == true)
+				msg = "이미 사용 중 입니다.";
+			else
+				msg = "사용 가능 합니다.";
+
 			request.setAttribute("msg", msg);
-			request.setAttribute("uuId", "wjd????");
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("view/chk_form/idchkform.jsp");
 			dispatcher.forward(request, response);
 		}
-		
 	}
 }

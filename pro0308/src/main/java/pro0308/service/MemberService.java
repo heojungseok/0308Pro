@@ -40,8 +40,8 @@ public class MemberService{
 		}
 		
 	}
-	public int chkTest(String id) {
-		int chk = 0;
+	public boolean chkTest(String id) {
+		boolean chk = false;
 		String sql = "SELECT * FROM userinfo WHERE uuid = " + "'" + id + "'";
 		String chkid = "";
 		
@@ -54,7 +54,7 @@ public class MemberService{
 			while(rs.next()) {
 				chkid = rs.getString("uuid");
 				if (chkid.equals(id)) {
-					return chk = 1;
+					return chk = true;
 				}
 			}
 			con.close();

@@ -97,7 +97,7 @@ a {
 			});
 			$('#confirmId').on('click', function() {
 				var id = $('#uuId').val();
-				var url = "./chk_form/idchkform.jsp?id="+$('#uuId').val();
+				var url = "../chkid?uuId="+$('#uuId').val();
 				var popName = "idchk";
 				var width = 350;
 				var height = 250;

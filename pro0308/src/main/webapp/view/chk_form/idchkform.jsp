@@ -15,36 +15,26 @@
 <title>중복 확인</title>
 </head>
 <body>
-	<span class="display-4">아이디를 확인하세요.</span>
-	<form
-		action=""
-		method="get">
-		<div class="input-group mb-3 ">
-			<input type="text" class="form-control" id="chkId" name="uuId"
-				value="${uuId }">
-			<button class="btn btn-sm btn-outline-secondary" type="submit"
-				id="chkId">아이디 확인</button>
-		</div>
-	</form>
+	<span class="display-4">ID 중복유무</span>
+	<hr>
+	<label class="form-control d-flex justify-content-center"> 
+	<input type="button" class="btn" id="chkId" value="" disabled>
+	</label>
 	<div class="d-flex justify-content-center">
-		<font id="chkMsg" size="2" value="${msg }"></font>
+		<font id="chkMsg" size="3" >${msg }</font>
 	</div>
 	<div class="d-flex justify-content-end">
-		<button class="btn btn-sm" type="button" id="doneBtn" onclick="">사용하기</button>
 		<button class="btn btn-sm" type="button" id="exitBtn"
-			onclick="exitBrowser();">취소</button>
+			onclick="exitBrowser();">닫기</button>
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var getLink = window.location.search;
 			var getUserId = getLink.split('=');
 			var getOnlyId = decodeURI(getUserId[1]);
-
+			
 			$('#chkId').attr('value', getOnlyId);
 
-			$("#chkId").on('click', function() {
-
-			});
 		});
 
 		function exitBrowser() {
